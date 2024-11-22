@@ -156,6 +156,25 @@ fun MahasiswaFormView(
                     singleLine = true,
                     shape = RoundedCornerShape(50.dp)
                 )
+                Spacer(modifier = Modifier.padding(8.dp))
+                OutlinedTextField(
+                    modifier = Modifier.fillMaxHeight(),
+                    value = email,
+                    onValueChange = {email = it },
+                    label = { Text(text = "Masukkan email") },
+                    leadingIcon = {
+                        Icon(
+                            imageVector = Icons.Filled.Info,
+                            contentDescription = ""
+                        )
+                    },
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Number,
+                        imeAction = ImeAction.Next
+                    ),
+                    singleLine = true,
+                    shape = RoundedCornerShape(50.dp)
+                )
 
             }
         }
