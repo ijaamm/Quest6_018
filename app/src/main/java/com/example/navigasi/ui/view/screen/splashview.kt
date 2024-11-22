@@ -31,7 +31,4 @@ fun Splashview(
                     id = R.color.primary
                 )
             ),
-    ){
-
-    }
-}
+        verticalArrangement = Arrangement.Center
