@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
@@ -39,7 +41,6 @@ import androidx.compose.material3.Text as Text
 
 @Composable
 fun MahasiswaFormView(
-    modifier: Modifier,
     onSubmitButtonCliked: (MutableList<String>) -> Unit,
     onBackButtonClicked: () -> Unit
 ){
@@ -56,7 +57,7 @@ fun MahasiswaFormView(
         mutableListOf(nama, nim, email)
 
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(
                 color = colorResource(
@@ -66,9 +67,9 @@ fun MahasiswaFormView(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.padding(16.dp))
-        Row (
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ){
             Image(
                 painter = painterResource(
                     id = R.drawable.umy
@@ -76,16 +77,14 @@ fun MahasiswaFormView(
                 contentDescription = "",
                 modifier = Modifier.size(45.dp)
             )
-            Spacer(modifier = Modifier.padding(start = 16.dp))
+            Spacer(modifier = Modifier.padding(16.dp))
             Column {
-                Text(
-                    text = "Universitas Muhammadiyah Yogyakarta",
+                Text(text = "Universitas Muhammadiyah Yogyakarta",
                     color = Color.Red,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
-                Text(
-                    text = "Unggul dan Islami",
+                Text(text = "Unggul dan Islami",
                     color = Color.Red,
                     fontWeight = FontWeight.Light
                 )
@@ -101,7 +100,7 @@ fun MahasiswaFormView(
                         topStart = 15.dp
                     )
                 )
-                .fillMaxSize(),
+                .fillMaxSize()
         ){
             Column (
                 modifier = Modifier
@@ -110,20 +109,19 @@ fun MahasiswaFormView(
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(
-                    text = "Masukkan Data Kamu",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 19.sp
+                    text = "Masukan Data Kamu",
+                    fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Isi sesuai data yang kamu daftarkan",
+                    text = "Isi Sesuai data yang kamu daftarkan",
                     fontWeight = FontWeight.Light
                 )
                 Spacer(modifier = Modifier.padding(8.dp))
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth(),
                     value = nim,
-                    onValueChange = {nim = it },
-                    label = { Text(text = "Nomor Induk Siswa") },
+                    onValueChange = {nim = it},
+                    label = {Text(text = "Nomor Induk Mahasiswa")},
                     leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Info,
@@ -135,60 +133,61 @@ fun MahasiswaFormView(
                         imeAction = ImeAction.Next
                     ),
                     singleLine = true,
-                    shape = RoundedCornerShape(50.dp)
+                    shape = RoundedCornerShape((50.dp))
                 )
-                Spacer(modifier = Modifier.padding(8.dp))
+                Spacer(modifier = Modifier.padding(4.dp))
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth(),
                     value = nama,
-                    onValueChange = {nama = it },
-                    label = { Text(text = "Nama Siswa") },
+                    onValueChange = {nama = it},
+                    label = {Text(text = "Nama Mahasiswa")},
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.Info,
+                            imageVector = Icons.Filled.AccountCircle,
                             contentDescription = ""
                         )
                     },
                     keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Number,
+                        keyboardType = KeyboardType.Text,
                         imeAction = ImeAction.Next
                     ),
                     singleLine = true,
-                    shape = RoundedCornerShape(50.dp)
+                    shape = RoundedCornerShape((50.dp))
                 )
-                Spacer(modifier = Modifier.padding(8.dp))
+                Spacer(modifier = Modifier.padding(4.dp))
                 OutlinedTextField(
-                    modifier = Modifier.fillMaxHeight(),
+                    modifier = Modifier.fillMaxWidth(),
                     value = email,
-                    onValueChange = {email = it },
-                    label = { Text(text = "Masukkan email") },
+                    onValueChange = {email = it},
+                    label = {Text(text = "Email Mahasiswa")},
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.Info,
+                            imageVector = Icons.Filled.Email,
                             contentDescription = ""
                         )
                     },
                     keyboardOptions = KeyboardOptions(
-                        keyboardType = KeyboardType.Number,
+                        keyboardType = KeyboardType.Text,
                         imeAction = ImeAction.Next
                     ),
                     singleLine = true,
-                    shape = RoundedCornerShape(50.dp)
+                    shape = RoundedCornerShape((50.dp))
                 )
                 Spacer(modifier = Modifier.padding(16.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement =
-                    Arrangement.SpaceEvenly
-                ) {
-                    Button(onClick = {
-                        onBackButtonClicked()
-                    }) {
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ){
+                    Button(
+                        onClick = {
+                            onBackButtonClicked()
+                        }) {
                         Text(text = "Kembali")
                     }
-                    Button(onClick = {
-                        onSubmitButtonCliked(listData)
-                    }) {
+                    Button(
+                        onClick = {
+                            onSubmitButtonCliked(listData)
+                        }) {
                         Text(text = "Simpan")
                     }
                 }

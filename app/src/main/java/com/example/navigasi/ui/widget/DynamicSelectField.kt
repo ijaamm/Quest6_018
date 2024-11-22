@@ -1,6 +1,7 @@
 package com.example.navigasi.ui.widget
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -17,7 +18,7 @@ import androidx.compose.ui.Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DynamicSelectField(
+fun DynamicSelectTextField(
     selectValue: String,
     options: List<String>,
     label: String,
@@ -45,7 +46,7 @@ fun DynamicSelectField(
             colors = ExposedDropdownMenuDefaults.textFieldColors(),
             modifier = Modifier
                 .menuAnchor()
-                .fillMaxSize()
+                .fillMaxWidth()
         )
         ExposedDropdownMenu(expanded = expanded,
             onDismissRequest = {expanded = false}) {
