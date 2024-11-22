@@ -96,6 +96,18 @@ fun RencanaStudyView(
                 )
             }
         }
+        Box(
+            modifier = Modifier
+                .background(
+                    color = Color.White,
+                    shape = RoundedCornerShape(
+                        topEnd = 15.dp,
+                        topStart = 15.dp
+                    )
+                )
+                .fillMaxSize()
+        ) {
 
+        }
     }
 }
