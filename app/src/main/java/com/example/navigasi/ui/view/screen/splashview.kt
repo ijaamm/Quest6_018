@@ -22,4 +22,16 @@ import com.example.navigasi.R
 @Composable
 fun Splashview(
     onMulaiButton: () -> Unit,
-){}
+){
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                color = colorResource(
+                    id = R.color.primary
+                )
+            ),
+    ){
+
+    }
+}
