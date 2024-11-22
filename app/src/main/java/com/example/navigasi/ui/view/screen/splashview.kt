@@ -33,5 +33,13 @@ fun Splashview(
             ),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-    ) {}
+    ) {
+        Image(
+            painter = painterResource(
+                id = R.drawable.umy
+            ),
+            contentDescription = "",
+            modifier = Modifier.size(15.dp)
+        )
+    }
 }
